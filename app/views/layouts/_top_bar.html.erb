@@ -1,0 +1,22 @@
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Apex</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+      <% if user_signed_in? %>
+        <li><%= link_to "Profile", user_session_path(current_user) %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li id="sign-in"><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
