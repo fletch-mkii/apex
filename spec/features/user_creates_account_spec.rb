@@ -20,10 +20,10 @@ feature "user can register for an account" do
     expect(page).to have_content('Signed in successfully.')
   end
 
-  scenario "user succesfully signs in" do
+  scenario "user succesfully signs out" do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
-    visit destroy_user_session_path
+    click_link "Sign Out"
     expect(page).to have_content('Signed out successfully.')
   end
 end
