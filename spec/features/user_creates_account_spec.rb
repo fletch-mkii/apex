@@ -10,7 +10,6 @@ feature "user can register for an account" do
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password
     click_on 'Sign up'
-
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 
