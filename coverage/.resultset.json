@@ -3,6 +3,9 @@
     "coverage": {
       "/Users/markfletcher/challenges/apex/app/models/user.rb": [
         1,
+        1,
+        null,
+        1,
         null,
         1,
         null,
@@ -10,6 +13,14 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
         null,
         null
       ],
@@ -82,21 +93,38 @@
         1,
         null,
         1,
-        7,
-        7,
+        9,
+        9,
         null,
         null,
         null,
         null
       ],
+      "/Users/markfletcher/challenges/apex/app/controllers/homes_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/markfletcher/challenges/apex/app/controllers/users_controller.rb": [
         1,
-        1,
-        null,
-        null,
         null,
         1,
         0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        0,
+        0,
+        null,
         null,
         null
       ],
@@ -109,6 +137,6 @@
         null
       ]
     },
-    "timestamp": 1453226144
+    "timestamp": 1453232221
   }
 }

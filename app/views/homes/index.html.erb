@@ -1,0 +1,14 @@
+<body>
+  <div class="row">
+    <div class="container">
+      <div class="small-6 small-centered columns overlay">
+        <% if user_signed_in? %>
+          <%= link_to "Find Your Apex", edit_user_registration_path, method: "patch" %>
+        <% else %>
+          <%= link_to "Log in to find your Apex", new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
