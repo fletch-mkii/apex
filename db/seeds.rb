@@ -31,4 +31,11 @@ csv_array_of_hashes.each do |star|
     luminosity: star[:st_lum],
     )
 end
+
+broken_stars = []
+csv_array_of_hashes.each do |star|
+  if Star.where("star_name = ?", star[:pl_hostname]).nil?
+    broken_stars << star
+  end
+end
 binding.pry
