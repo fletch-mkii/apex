@@ -4,6 +4,8 @@
       "/Users/markfletcher/challenges/apex/app/models/user.rb": [
         1,
         null,
+        1,
+        null,
         null,
         1,
         null,
@@ -17,6 +19,9 @@
       ],
       "/Users/markfletcher/challenges/apex/app/models/star.rb": [
         1,
+        null,
+        1,
+        null,
         1,
         1,
         1,
@@ -96,14 +101,14 @@
         null
       ],
       "/Users/markfletcher/challenges/apex/app/controllers/stars_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1453222317
+    "timestamp": 1453226144
   }
 }

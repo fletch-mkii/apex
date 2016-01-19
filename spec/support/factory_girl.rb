@@ -12,6 +12,5 @@ FactoryGirl.define do
     sequence(:star_name) { |n| "star#{n}" }
     sequence(:right_ascension) { |n| 10.0 + "0.#{n}".to_f  }
     sequence (:declination) { |n| 20.0 + "0.#{n}".to_f }
-
   end
 end

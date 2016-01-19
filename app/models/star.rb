@@ -1,4 +1,7 @@
 class Star < ActiveRecord::Base
+
+  has_many :users
+
   validates :star_name, presence: true, uniqueness: true
   validates :right_ascension, presence: true, numericality: true
   validates :declination, presence: true, numericality: true
