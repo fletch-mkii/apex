@@ -2,23 +2,19 @@ class Star < ActiveRecord::Base
   validates :star_name, presence: true, uniqueness: true
   validates :right_ascension, presence: true, numericality: true
   validates :declination, presence: true, numericality: true
-  validates :distance, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :temperature, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :stellar_age, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :stellar_radius, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :stellar_mass, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :density, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
-  validates :surface_gravity, format: { with: /\A\d+(.\d+)?\Z|\AUnknown\Z/ }
 
 
 
   ##api parsing to save for later.  Incomplete.
-  # def get_celestial(table, columns)
-  #   base_query = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets"
-  #   table_query = "&table=" + table
-  #   column_query = "&select=" + column
-  #   response = HTTPClient.new.get(base)
-  #   array_of_arrays = CSV.parse(response)
+  # def get_celestial
+  #   STAR_COLUMNS = ["pl_hostname","ra","dec","st_dist","st_teff","st_mass","st_rad","st_spstr","st_logg","st_lum","st_dens","st_age"]
+  #   exoplanets_base_query = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets"
+  #   star_query = "&columns=" + STAR_COLUMNS.join(",")
+  #   star_response = HTTPClient.new.get(exoplanets_base_query + star_query)
+  #   # PLANET_COLUMNS = ["pl_name"]
+  #   # planet_query = "&columns=" + planet_columns.join(",")
+  #   # planet_response = HTTPClient.new.get(exoplanets_base_query + planet_query)
+  # #   array_of_arrays = CSV.parse(response)
   # end
   #####
   #OVERALL INFO#
@@ -28,7 +24,7 @@ class Star < ActiveRecord::Base
   #MIGRATED#ra - right ascension of the system in DECIMAL DEGREES (ra_str is for sexagesimal format))
   #MIGRATED#dec - declination of the system in DECIMAL DEGREES (dec_str is for sexagesimal format)
   #MIGRATED#st_dist - distance to the system in PARSECS
-  #MIGRATED(indirectly)#st_optmag - brightness of host star measured using V (Johnson) or Kepler-band in units of magnitude (not sure here)
+  #st_optmag - brightness of host star measured using V (Johnson) or Kepler-band in units of magnitude (not sure here)
   #MIGRATED#st_teff - Effective temperature of the host star as modeled by a black body in KELVINS
   #MIGRATED#st_mass - Stellar Mass in units of SOLAR MASS
   #MIGRATED#st_rad - Stellar Radius in units of SOLAR RADII

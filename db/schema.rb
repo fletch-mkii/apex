@@ -17,19 +17,18 @@ ActiveRecord::Schema.define(version: 20160118204203) do
   enable_extension "plpgsql"
 
   create_table "stars", force: :cascade do |t|
-    t.string "star_name",                              null: false
-    t.string "right_ascension",                        null: false
-    t.string "declination",                            null: false
-    t.string "distance",           default: "Unknown", null: false
-    t.string "temperature",        default: "Unknown", null: false
-    t.string "stellar_age",        default: "Unknown", null: false
-    t.string "stellar_mass",       default: "Unknown", null: false
-    t.string "stellar_radius",     default: "Unknown", null: false
-    t.string "spectral_type",      default: "Unknown", null: false
-    t.string "density",            default: "Unknown", null: false
-    t.string "surface_gravity",    default: "Unknown", null: false
-    t.string "luminosity",         default: "Unknown", null: false
-    t.string "absolute_magnitude", default: "Unknown", null: false
+    t.string "star_name",       null: false
+    t.float  "right_ascension", null: false
+    t.float  "declination",     null: false
+    t.float  "distance"
+    t.float  "temperature"
+    t.float  "stellar_age"
+    t.float  "stellar_mass"
+    t.float  "stellar_radius"
+    t.string "spectral_type"
+    t.float  "density"
+    t.float  "surface_gravity"
+    t.float  "luminosity"
   end
 
   create_table "users", force: :cascade do |t|
