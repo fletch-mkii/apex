@@ -14,6 +14,7 @@ feature "user can register for an account" do
   end
 
   scenario "user succesfully signs in" do
+    binding.pry
     user = FactoryGirl.create(:user)
     sign_in_as(user)
     expect(page).to have_content('Signed in successfully.')

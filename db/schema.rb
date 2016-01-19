@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118160059) do
+ActiveRecord::Schema.define(version: 20160118204203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "stars", force: :cascade do |t|
+    t.string "star_name",                              null: false
+    t.string "right_ascension",                        null: false
+    t.string "declination",                            null: false
+    t.string "distance",           default: "Unknown", null: false
+    t.string "temperature",        default: "Unknown", null: false
+    t.string "stellar_age",        default: "Unknown", null: false
+    t.string "stellar_mass",       default: "Unknown", null: false
+    t.string "stellar_radius",     default: "Unknown", null: false
+    t.string "spectral_type",      default: "Unknown", null: false
+    t.string "density",            default: "Unknown", null: false
+    t.string "surface_gravity",    default: "Unknown", null: false
+    t.string "luminosity",         default: "Unknown", null: false
+    t.string "absolute_magnitude", default: "Unknown", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false

@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'dotenv-rails'
 gem 'devise'
+gem "httpclient"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
