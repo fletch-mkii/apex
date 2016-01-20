@@ -50,20 +50,27 @@ class User < ActiveRecord::Base
   private
 
   def star_search(range)
-    stars = Star.find_by_sql("
-      SELECT * FROM stars
-      WHERE CAST(declination as numeric)
-      BETWEEN #{current_declination - range} AND #{current_declination + range}
-      AND CAST(right_ascension as numeric)
-      BETWEEN #{current_right_ascension - range} AND #{current_right_ascension + range}"
+    # stars = Star.find_by_sql("
+    #   SELECT * FROM stars
+    #   BETWEEN #{current_declination - range} AND #{current_declination + range}
+    #   BETWEEN #{current_right_ascension - range} AND #{current_right_ascension + range}"
+    # )
+    stars = Star.where(
+      declination: (current_declination - range)..(current_declination + range),
+      right_ascension: (current_right_ascension - range)..(current_right_ascension + range)
     )
-      if stars.empty?
-        return star_search(range + 1.0)
-      elsif stars.count == 1
-        return stars.first
-      else
-        closest_star(stars)
-      end
+    # WHERE CAST(declination as numeric)
+    # AND CAST(right_ascension as numeric)
+    # Star.find_by_sql("SELECT * FROM stars WHERE CAST(declination as numeric) BETWEEN 0 AND 100 AND CAST (right_ascension as numeric) BETWEEN 0 AND 100")
+    
+    if stars.empty?
+      return star_search(range + 5.0) if range >= 5.0
+      return star_search(range + 1.0)
+    elsif stars.count == 1
+      return stars.first
+    else
+      return closest_star(stars)
+    end
   end
 
   def closest_star(stars)

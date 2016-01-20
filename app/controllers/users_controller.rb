@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @star = @user.find_star
 
     if @user.save
-      binding.pry
       @user.histories.create(star_id: @star.id, observation_location: @location)
       flash.notice = "Star successfully found!"
       redirect_to star_path(@star)
