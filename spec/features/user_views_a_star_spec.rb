@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "user can view a star" do
-
   let(:user) { FactoryGirl.create(:user) }
   let(:star) { FactoryGirl.create(:star) }
 

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118204203) do
+ActiveRecord::Schema.define(version: 20160120183832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "histories", force: :cascade do |t|
+    t.integer  "user_id",              null: false
+    t.integer  "star_id",              null: false
+    t.string   "observation_location", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "histories", ["star_id"], name: "index_histories_on_star_id", using: :btree
+  add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
 
   create_table "stars", force: :cascade do |t|
     t.string "star_name",       null: false
@@ -31,6 +42,8 @@ ActiveRecord::Schema.define(version: 20160118204203) do
     t.float  "luminosity"
   end
 
+  add_index "stars", ["declination", "right_ascension"], name: "index_stars_on_declination_and_right_ascension", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
     t.string   "email",                  default: "", null: false
@@ -45,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160118204203) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
