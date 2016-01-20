@@ -1,7 +1,7 @@
 require "httpclient"
 require "json"
 
-#days counted from 00:00 of the first of every month
+# days counted from 00:00 of the first of every month
 DAYS_PASSED_PER_MONTH = {
   "1" => { normal: 0, leap: 0 },
   "2" => { normal: 31, leap: 31 },
@@ -16,8 +16,9 @@ DAYS_PASSED_PER_MONTH = {
   "11" => { normal: 304, leap: 305 },
   "12" => { normal: 334, leap: 335 }
 }
+DAYS_PASSED_PER_MONTH.freeze # ???
 
-#days passed since J2000 epoch as of 00:00 01/01/16
+# days passed since J2000 epoch as of 00:00 01/01/16
 DAYS_SINCE_J2000 = 5842.5
 
 class User < ActiveRecord::Base
@@ -44,21 +45,18 @@ class User < ActiveRecord::Base
 
   def find_star
     star_search(1.0)
-      # SELECT * FROM stars
-      # WHERE CAST(declination as numeric) BETWEEN 5 AND 10
-      # AND CAST(right_ascension as numeric) BETWEEN 270 AND 290;
   end
 
   private
 
   def star_search(range)
-    stars = Star.find_by_sql(
-      "SELECT * FROM stars
+    stars = Star.find_by_sql("
+      SELECT * FROM stars
       WHERE CAST(declination as numeric)
       BETWEEN #{current_declination - range} AND #{current_declination + range}
       AND CAST(right_ascension as numeric)
       BETWEEN #{current_right_ascension - range} AND #{current_right_ascension + range}"
-      )
+    )
       if stars.empty?
         return star_search(range + 1.0)
       elsif stars.count == 1
@@ -69,7 +67,7 @@ class User < ActiveRecord::Base
   end
 
   def closest_star(stars)
-    min_distance = 100000
+    min_distance = 100_000
     stars.each do |star|
       min_distance = star.distance if star.distance < min_distance
     end
@@ -83,8 +81,8 @@ class User < ActiveRecord::Base
     time.hour.to_f + (time.min.to_f / 60.0) + (time.sec.to_f / 3600.0)
   end
 
-  def current_local_hour_angle ##currently 24 hour clock and 360 degrees max, should be 12 and 180???
-    15.0 * hours       ## or maybe not?!?!?!
+  def current_local_hour_angle
+    15.0 * hours
   end
 
   def current_j2000_date
@@ -103,7 +101,7 @@ class User < ActiveRecord::Base
     sidereal % 360
     # sidereal = current_local_hour_angle + 100.46 + self.longitude + 0.0034557123449953306 * current_j2000_date
     # sidereal = 18.697374558 + self.longitude + 24.06570982441908 * current_j2000_date
-    #GMST = 18.697374558 + 24.06570982441908 D
+    # GMST = 18.697374558 + 24.06570982441908 D
   end
 
   def current_right_ascension
@@ -113,7 +111,6 @@ class User < ActiveRecord::Base
   end
 
   def current_declination
-    self.latitude
+    latitude
   end
-
 end
