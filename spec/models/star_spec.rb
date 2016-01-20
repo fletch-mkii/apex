@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe Star do
 
+  it { should have_many :users }
+
   describe "validation checks for star_name" do
     subject { FactoryGirl.build(:star) }
     it { should validate_presence_of(:star_name) }

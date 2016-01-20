@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     @star = @user.find_star
 
     if @user.save
-      @user.histories.create(star_id: @star.id, observation_location: @location)
+      unless @user.stars.include?(@star)
+        @user.histories.create(star_id: @star.id, observation_location: @location)
+      end
       flash.notice = "Star successfully found!"
       redirect_to star_path(@star)
     else

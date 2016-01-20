@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe User do
 
+  it { should have_many :stars }
+
   describe "validation checks for email" do
     subject { FactoryGirl.build(:user) }
     it { should validate_uniqueness_of(:email).case_insensitive }
