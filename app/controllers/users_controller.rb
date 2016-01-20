@@ -7,14 +7,16 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     ip = @user.current_sign_in_ip
-    @user.set_location(ip)
+    @location = @user.set_location(ip)
     @star = @user.find_star
 
     if @user.save
+      binding.pry
+      @user.histories.create(star_id: @star.id, observation_location: @location)
       flash.notice = "Location successfully found."
       redirect_to star_path(@star)
     else
-      flash.notice = user.errors.full_messages.join(". ")
+      flash.notice = @user.errors.full_messages.join(". ")
       render root_path
     end
   end

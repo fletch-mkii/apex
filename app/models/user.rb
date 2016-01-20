@@ -22,7 +22,9 @@ DAYS_SINCE_J2000 = 5842.5
 
 class User < ActiveRecord::Base
 
-  has_many :stars
+  has_many :histories
+  has_many :stars, through: :histories
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,6 +38,8 @@ class User < ActiveRecord::Base
 
     self.latitude = json_response["latitude"]
     self.longitude = json_response["longitude"]
+
+    return "#{json_response["city"]}, #{json_response["region_name"]}, #{json_response["country_name"]}"
   end
 
   def find_star

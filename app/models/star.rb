@@ -1,12 +1,11 @@
 class Star < ActiveRecord::Base
 
-  has_many :users
+  has_many :histories
+  has_many :users, through: :histories
 
   validates :star_name, presence: true, uniqueness: true
   validates :right_ascension, presence: true, numericality: true
   validates :declination, presence: true, numericality: true
-
-
 
   ##api parsing to save for later.  Incomplete.
   # def get_celestial
