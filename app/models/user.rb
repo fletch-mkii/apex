@@ -50,19 +50,10 @@ class User < ActiveRecord::Base
   private
 
   def star_search(range)
-    # stars = Star.find_by_sql("
-    #   SELECT * FROM stars
-    #   BETWEEN #{current_declination - range} AND #{current_declination + range}
-    #   BETWEEN #{current_right_ascension - range} AND #{current_right_ascension + range}"
-    # )
     stars = Star.where(
       declination: (current_declination - range)..(current_declination + range),
       right_ascension: (current_right_ascension - range)..(current_right_ascension + range)
     )
-    # WHERE CAST(declination as numeric)
-    # AND CAST(right_ascension as numeric)
-    # Star.find_by_sql("SELECT * FROM stars WHERE CAST(declination as numeric) BETWEEN 0 AND 100 AND CAST (right_ascension as numeric) BETWEEN 0 AND 100")
-    
     if stars.empty?
       return star_search(range + 5.0) if range >= 5.0
       return star_search(range + 1.0)
@@ -104,7 +95,8 @@ class User < ActiveRecord::Base
   end
 
   def current_local_sidereal
-    sidereal = current_local_hour_angle + 100.46 + self.longitude + 0.9885647 * current_j2000_date
+    sidereal = current_local_hour_angle + 100.46 + longitude
+    sidereal += 0.9885647 * current_j2000_date
     sidereal % 360
     # sidereal = current_local_hour_angle + 100.46 + self.longitude + 0.0034557123449953306 * current_j2000_date
     # sidereal = 18.697374558 + self.longitude + 24.06570982441908 * current_j2000_date
