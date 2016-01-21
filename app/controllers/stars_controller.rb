@@ -16,7 +16,6 @@ class StarsController < ApplicationController
   ]
 
   def show
-    binding.pry
     @units = UNITS
     @star = Star.find(params[:id])
   end
