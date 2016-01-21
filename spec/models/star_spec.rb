@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Star do
 
+  it { should have_many :planets }
   it { should have_many :users }
 
   describe "validation checks for star_name" do

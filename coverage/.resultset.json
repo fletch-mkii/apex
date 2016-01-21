@@ -132,9 +132,23 @@
         1,
         null
       ],
+      "/Users/markfletcher/challenges/apex/app/models/planet.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
       "/Users/markfletcher/challenges/apex/app/models/star.rb": [
         1,
         null,
+        1,
         1,
         1,
         null,
@@ -306,8 +320,6 @@
         null
       ]
     },
-
-
-    "timestamp": 1453409788
+    "timestamp": 1453414867
   }
 }
