@@ -1,12 +1,6 @@
-<div class="show-footer bg-img">
-  <div class="floating-container">
-    <div class="row title-header">
-    </div>
-  </div>
-  <%if false%>
-    <% @users.each do |user| %>
-      <%= user.username %>
-      <%= user.email %>
-    <% end %>
-  <%end%>
+<div>
+  <% @users.each do |user| %>
+    <%= user.username %>
+    <%= user.email %>
+  <% end %>
 </div>
