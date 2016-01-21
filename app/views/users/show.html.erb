@@ -1,3 +1,9 @@
-<div class="title-header show-footer">
-  <h1><%= @user.email %></h1>
+<div class="row">
+  <img src="/assets/blue-eclipse.jpg" class="float-center background-image"/>
+  <h1 class="title"><%= @user.username + "'s Profile" %></h1>
+  <ul>
+    <h3 class="title">Star Collection:</h3>
+    <%@user.stars.each do |star|%>
+      <li><%=link_to star.star_name, star_path(star)%></li>
+    <%end%>
 </div>

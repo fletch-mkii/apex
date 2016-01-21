@@ -1,0 +1,15 @@
+.accordion-navigation {
+  >a:after {
+    content: "↡";
+    padding-left: 5px;
+    float: right;
+    font-size: 20px;
+  }
+  &.active > a:after {
+    content: "↟";
+  }
+}
+
+.accordion {
+  background-color: #000000;
+}
