@@ -1,14 +1,28 @@
-<body>
-  <div class="row">
-    <div class="container">
-      <div class="small-6 small-centered columns overlay">
-        <% if user_signed_in? %>
-          <%= button_to "Find Your Apex", edit_user_registration_path, method: "patch" %>
-        <% else %>
-          <%= button_to "Log in to find your Apex", new_user_session_path %>
-        <% end %>
-      </div>
+<div class="overlay-container">
+  <div class="row text-center overlay small-centered small-12 columns header">
+    <h2 class="title">Apex</h2>
+    <p></p>
+  </div>
+    <img src="/assets/blue-eclipse.jpg" class="float-center background-image"/>
+  <div class="row text-center overlay small-centered small-12 columns">
+    <% if user_signed_in? %>
+      <%= button_to "Find Your Apex", edit_user_registration_path, method: "patch", class: "success button" %>
+    <% else %>
+      <%= button_to "Log in to find your Apex", new_user_session_path, class: "success button" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-6 large-push-2 columns">
+    <div class="circle-bg personal-star">
+      <p>Find Your Apex!</p>
     </div>
   </div>
-</body>
-</html>
+  <div class="large-6 large-pull-2 columns">
+    <div class="circle-bg random-star">
+      <p>Find A Random Star!</p>
+    </div>
+  </div>
+</div>

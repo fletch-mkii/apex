@@ -1,15 +1,33 @@
-<div class="full-height bg-img">
-  <div class="row">
-    <div class="small-12 medium-10 medium-centered large-8 large-centered columns show-footer">
-
-      <%@star.attributes.each do |attr,value|%>
-        <%next if attr == "id"%>
-        <%value = "Unknown" if value.nil?%>
-        <div class="row floating-container">
-          <%=attr.titleize + ": #{value}"%>
-        </div>
-      <%end%>
-
-    </div>
+<div class="overlay-container">
+  <img src="/assets/blue-eclipse.jpg" class="float-center background-image"/>
+  <div class="row overlay small-centered small-12 columns">
+    <%counter = 0%>
+    <%@star.attributes.each do |attribute,value|%>
+      <%next if attribute == "id"%>
+      <div class="row floating-container">
+        <span data-tooltip aria-haspopup="true" class="has-tip" title="Extra Info">
+          <%unless value.nil? || value == 0.0%>
+            <%=attribute.titleize + ": #{value}" + @units[counter]%>
+          <%else%>
+            <%=attribute.titleize + ": Unknown"%>
+          <%end%>
+        </span>
+      </div>
+      <%counter += 1%>
+    <%end%>
   </div>
+  <ul class="row overlay-container accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
+    <li class="accordion-navigation">
+      <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Planet 1</a>
+      <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+        WAM BAM IM A PLANET!
+      </div>
+    </li>
+    <li class="accordion-navigation">
+      <a href="#panel2d" role="tab" class="accordion-title" id="panel2d-heading" aria-controls="panel2d">Planet 2</a>
+      <div id="panel2d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel2d-heading">
+        SECOND PLANET STUFF AWWW YEEEE
+      </div>
+    </li>
+  </ul>
 </div>
