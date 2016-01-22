@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require flash_fade.js
+//=require description_box.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

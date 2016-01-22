@@ -5,9 +5,9 @@
     <%@star.attributes.each do |attribute,value|%>
       <%next if attribute == "id"%>
       <div class="row floating-container">
-        <span data-tooltip aria-haspopup="true" class="has-tip" title="Extra Info">
+        <span data-tooltip aria-haspopup="true" class="has-tip description" title="Extra Info">
           <%unless value.nil? || value == 0.0%>
-            <%=attribute.titleize + ": #{value}" + @units[counter]%>
+            <%=attribute.titleize + ": #{value}" + @star_units[counter]%>
           <%else%>
             <%=attribute.titleize + ": Unknown"%>
           <%end%>
@@ -17,17 +17,31 @@
     <%end%>
   </div>
   <ul class="row overlay-container accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
-    <li class="accordion-navigation">
-      <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Planet 1</a>
-      <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
-        WAM BAM IM A PLANET!
-      </div>
-    </li>
-    <li class="accordion-navigation">
-      <a href="#panel2d" role="tab" class="accordion-title" id="panel2d-heading" aria-controls="panel2d">Planet 2</a>
-      <div id="panel2d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel2d-heading">
-        SECOND PLANET STUFF AWWW YEEEE
-      </div>
-    </li>
+    <% @planets.each do |planet| %>
+      <li class="accordion-navigation ">
+        <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><%= planet.planet_name %></a>
+        <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
+            <h6 class="transit"><%= planet.transits? %></h6>
+          </span>
+          <div class="row">
+              <%planet.attributes.each do |attribute,value|%>
+                <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
+                <div class="row">
+                  <div class="small-4 columns">
+                    <span data-tooltip aria-haspopup="true" class="tiptext has-tip description" title="Extra Info">
+                        <%unless value.nil? || value == 0.0%>
+                          <%=attribute.titleize + ": #{value}"%>
+                        <%else%>
+                          <%=attribute.titleize + ": Unknown"%>
+                        <%end%>
+                      <div class="planet-text small-8 columns">TEXTWOO</div>
+                    </span>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </div>
