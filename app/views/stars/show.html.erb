@@ -3,7 +3,7 @@
   <div class="row overlay small-centered small-12 columns">
     <%counter = 0%>
     <%@star.attributes.each do |attribute,value|%>
-      <%next if attribute == "id" || attribute == "star_name"%>
+      <%next if attribute == "id"%>
       <div class="row floating-container">
         <span data-tooltip aria-haspopup="true" class="has-tip description" title="Extra Info">
           <%unless value.nil? || value == 0.0%>
