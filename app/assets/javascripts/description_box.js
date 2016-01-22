@@ -1,6 +1,7 @@
 $(function() {
   $(".description").click(function() {
-      $(".planet-text").show();
+    debugger;
+    $(this).children().show();
   }); //$(".description").mouseout(function() {
       // $(".planet-text").hide();
   // });

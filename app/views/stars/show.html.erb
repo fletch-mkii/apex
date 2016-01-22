@@ -21,25 +21,24 @@
       <li class="accordion-navigation ">
         <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><%= planet.planet_name %></a>
         <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
-          <span data-tooltip aria-haspopup="true" class="has-tip" title="Extra Info">
             <h6 class="transit"><%= planet.transits? %></h6>
           </span>
           <div class="row">
-            <div class="small-4 columns">
               <%planet.attributes.each do |attribute,value|%>
                 <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
                 <div class="row">
-                  <span data-tooltip aria-haspopup="true" class="tiptext has-tip description" title="Extra Info">
-                    <%unless value.nil? || value == 0.0%>
-                      <%=attribute.titleize + ": #{value}"%>
-                    <%else%>
-                      <%=attribute.titleize + ": Unknown"%>
-                    <%end%>
-                  </span>
+                  <div class="small-4 columns">
+                    <span data-tooltip aria-haspopup="true" class="tiptext has-tip description" title="Extra Info">
+                        <%unless value.nil? || value == 0.0%>
+                          <%=attribute.titleize + ": #{value}"%>
+                        <%else%>
+                          <%=attribute.titleize + ": Unknown"%>
+                        <%end%>
+                      <div class="planet-text small-8 columns">TEXTWOO</div>
+                    </span>
+                  </div>
                 </div>
               <% end %>
-            </div>
-            <div class="planet-text small-8 columns">TEXTWOO</div>
           </div>
         </div>
       </li>
