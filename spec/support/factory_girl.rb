@@ -21,4 +21,9 @@ FactoryGirl.define do
     user
     star
   end
+
+  factory :planet do
+    sequence(:planet_name) { |n| "Omicron Persei #{n}" }
+    star
+  end
 end
