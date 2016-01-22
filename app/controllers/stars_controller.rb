@@ -1,23 +1,10 @@
 class StarsController < ApplicationController
 
-  UNITS = [
-    "",
-    "°",
-    "°",
-    " Parsecs",
-    " Kelvin",
-    " Gigayears",
-    " Solar Masses",
-    " Solar Radii",
-    "",
-    " Grams per cubic centimeter",
-    " Log10 of cm/s^2",
-    " Solar Luminosities"
-  ]
-
   def show
-    @units = UNITS
+    @star_units = Star::UNITS
+    @planet_units = Planet::UNITS
     @star = Star.find(params[:id])
+    @planets = @star.planets
   end
 end
 
