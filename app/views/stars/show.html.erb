@@ -1,42 +1,40 @@
 <div class="overlay-container">
-  <img src="http://i.imgur.com/9JWxjLZ.jpg" class="float-center background-image"/>
   <div class="row overlay small-centered small-12 columns">
     <%counter = 0%>
     <%@star.attributes.each do |attribute,value|%>
       <%next if attribute == "id"%>
-      <div class="row floating-container">
-        <span data-tooltip aria-haspopup="true" class="has-tip description" title="Extra Info">
+      <div class="row attribute">
+        <div class="small-4 columns att-name">
           <%unless value.nil? || value == 0.0%>
             <%=attribute.titleize + ": #{value}" + @star_units[counter]%>
           <%else%>
             <%=attribute.titleize + ": Unknown"%>
           <%end%>
-        </span>
+        </div>
+        <div class="small-8 columns description">TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO </div>
       </div>
       <%counter += 1%>
     <%end%>
   </div>
   <ul class="row overlay-container accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
     <% @planets.each do |planet| %>
-      <li class="accordion-navigation ">
+      <li class="accordion-navigation text-center">
         <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><%= planet.planet_name %></a>
         <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
             <h6 class="transit"><%= planet.transits? %></h6>
           </span>
-          <div class="row">
+          <div class="row all-attributes text-left">
               <%planet.attributes.each do |attribute,value|%>
                 <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
-                <div class="row">
-                  <div class="small-4 columns">
-                    <span data-tooltip aria-haspopup="true" class="tiptext has-tip description" title="Extra Info">
-                        <%unless value.nil? || value == 0.0%>
-                          <%=attribute.titleize + ": #{value}"%>
-                        <%else%>
-                          <%=attribute.titleize + ": Unknown"%>
-                        <%end%>
-                      <div class="planet-text small-8 columns">TEXTWOO</div>
-                    </span>
+                <div class="row attribute">
+                  <div class="small-4 columns att-name">
+                    <%unless value.nil? || value == 0.0%>
+                      <%=attribute.titleize + ": #{value}"%>
+                    <%else%>
+                      <%=attribute.titleize + ": Unknown"%>
+                    <%end%>
                   </div>
+                  <div class="small-8 columns description">TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO TEXTWOO </div>
                 </div>
               <% end %>
           </div>

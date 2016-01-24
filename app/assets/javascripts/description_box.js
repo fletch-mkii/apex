@@ -1,8 +1,6 @@
 $(function() {
-  $(".description").click(function() {
-    debugger;
-    $(this).children().show();
-  }); //$(".description").mouseout(function() {
-      // $(".planet-text").hide();
-  // });
+  $(".att-name").click(function() {
+    $(this).parent().parent().children().children().not(".att-name").hide();
+    $(this).siblings().toggle();
+  });
 });
