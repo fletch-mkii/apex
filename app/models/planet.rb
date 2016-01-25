@@ -8,7 +8,6 @@ class Planet < ActiveRecord::Base
     "Jupiter Radii",
     "Grams per cubic centimeter",
     "",
-    "Log10 of cm/s^2"
   ]
 
   ATTRIBUTE_INFO = {
@@ -18,7 +17,6 @@ class Planet < ActiveRecord::Base
     planetmass: "planet mass info",
     planetradius: "planet radiu info",
     planetdensity: "planet density info",
-    surfacegravity: "gravity info",
     planetdiscoverymethod: "discovery info",
   }
 

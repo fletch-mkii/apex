@@ -11,6 +11,7 @@ class Star < ActiveRecord::Base
     "Solar Radii",
     "",
     "Grams per cubic centimeter",
+    "Log10 of cm/s^2",
     "Solar Luminosities"
   ]
 
@@ -25,6 +26,7 @@ class Star < ActiveRecord::Base
     strellarradius: "radius info",
     spectraltype: "spectype info",
     density: "density info",
+    surfacegravity: "gravity info",
     luminosity: "luminosity info"
   }
 

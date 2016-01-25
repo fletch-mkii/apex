@@ -8,15 +8,15 @@ require "csv"
   User.create(username: "testname#{i}", email: "test#{i}@email.com", password: "password#{i}")
 end
 
-User.create(username: "markbark", email: "markbark@markbark.ark", password: "password")
+User.create(username: "markbark", email: "markbark@mark.bark.ark", password: "password")
 
 30.times do |i|
   History.create(user_id: 11, star_id: i, observation_location: "location #{i}")
 end
 
 
-STAR_COLUMNS = ["pl_hostname","ra","dec","st_dist","st_teff","st_mass","st_rad","st_spstr","st_lum","st_dens","st_age"]
-PLANET_COLUMNS = ["pl_name","pl_tranflag","pl_eqt","pl_discmethod","pl_orbper","pl_orbeccen","pl_massj","pl_radj","pl_dens","st_logg"]
+STAR_COLUMNS = ["pl_hostname","ra","dec","st_dist","st_teff","st_mass","st_rad","st_spstr","st_lum","st_dens","st_age","st_logg"]
+PLANET_COLUMNS = ["pl_name","pl_tranflag","pl_eqt","pl_discmethod","pl_orbper","pl_orbeccen","pl_massj","pl_radj","pl_dens"]
 exoplanets_base_query = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets"
 query = "&columns=" + STAR_COLUMNS.join(",") + "," + PLANET_COLUMNS.join(",")
 response = HTTPClient.new.get(exoplanets_base_query + query)
@@ -43,6 +43,7 @@ csv_array_of_hashes.each do |planet|
     stellar_radius: planet[:st_rad],
     spectral_type: planet[:st_spstr],
     density: planet[:st_dens],
+    surface_gravity: planet[:st_logg],
     luminosity: planet[:st_lum],
   )
 
@@ -56,7 +57,6 @@ csv_array_of_hashes.each do |planet|
     mass: planet[:pl_massj],
     radius: planet[:pl_radj],
     density: planet[:pl_dens],
-    surface_gravity: planet[:st_logg],
     discovery_method: planet[:pl_discmethod],
     transits: planet[:pl_tranflag],
     star_id: star.id
