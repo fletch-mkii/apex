@@ -1,8 +1,19 @@
 <div class="row">
-  <h1 class="title"><%= @user.username + "'s Profile" %></h1>
-  <ul>
-    <h3 class="title">Star Collection:</h3>
+  <h1 class="title text-center"><%= @user.username + "'s"%></h1>
+  <h3 class="title text-center">Star Collection</h3>
+  <div class="row">
     <%@user.stars.each do |star|%>
-      <li><%=link_to star.star_name, star_path(star)%></li>
+      <div class="small-2 columns end">
+        <a href="<%= '/stars/' + star.id.to_s %>">
+          <div class="service">
+            <div class="service-icon-box">
+              <img src="http://www.aeb.edu.pt/images/sol_256.png" alt="" class="service-icon">
+            </div>
+            <h4 class="service-heading"><%= star.star_name %></h4>
+            <p class="service-description">Click to visit star</p>
+          </div>
+        </a>
+      </div>
     <%end%>
+  </div>
 </div>

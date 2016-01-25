@@ -4,16 +4,29 @@ class Star < ActiveRecord::Base
     "",
     "°",
     "°",
-    " Parsecs",
-    " Kelvin",
-    " Gigayears",
-    " Solar Masses",
-    " Solar Radii",
+    "Parsecs",
+    "Kelvin",
+    "Gigayears",
+    "Solar Masses",
+    "Solar Radii",
     "",
-    " Grams per cubic centimeter",
-    " Log10 of cm/s^2",
-    " Solar Luminosities"
+    "Grams per cubic centimeter",
+    "Solar Luminosities"
   ]
+
+  ATTRIBUTE_INFO = {
+    starname: "star name info",
+    rightascension: "RA info",
+    declination: "dec info",
+    distance: "dist info",
+    temperature: "temp info",
+    stellarage: "age info",
+    stellarmass: "mass info",
+    strellarradius: "radius info",
+    spectraltype: "spectype info",
+    density: "density info",
+    luminosity: "luminosity info"
+  }
 
   has_many :planets
   has_many :histories

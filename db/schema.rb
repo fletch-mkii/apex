@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121220143) do
+ActiveRecord::Schema.define(version: 20160125193438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160121220143) do
     t.string  "discovery_method"
     t.boolean "transits"
     t.integer "star_id",              null: false
+    t.float   "surface_gravity"
   end
 
   add_index "planets", ["star_id"], name: "index_planets_on_star_id", using: :btree
@@ -53,7 +54,6 @@ ActiveRecord::Schema.define(version: 20160121220143) do
     t.float  "stellar_radius"
     t.string "spectral_type"
     t.float  "density"
-    t.float  "surface_gravity"
     t.float  "luminosity"
   end
 

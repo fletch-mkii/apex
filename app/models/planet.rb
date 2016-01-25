@@ -7,7 +7,20 @@ class Planet < ActiveRecord::Base
     "Juper Masses",
     "Jupiter Radii",
     "Grams per cubic centimeter",
+    "",
+    "Log10 of cm/s^2"
   ]
+
+  ATTRIBUTE_INFO = {
+    planettemperature: "planet surface temperature info",
+    planetorbitalperiod: "orbital period info",
+    planetorbitaleccentricity: "planet orbital eccentricity info",
+    planetmass: "planet mass info",
+    planetradius: "planet radiu info",
+    planetdensity: "planet density info",
+    surfacegravity: "gravity info",
+    planetdiscoverymethod: "discovery info",
+  }
 
   belongs_to :star
 

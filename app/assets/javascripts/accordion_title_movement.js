@@ -1,6 +1,5 @@
 $(function() {
   $(".accordion-title").click(function() {
-    debugger;
       if ($(this).hasClass("text-left")) {
         $(this).removeClass("text-left");
         $(this).addClass("text-center animated pulse")

@@ -1,8 +1,22 @@
 $(function() {
+  $(".star-attribute").click(function() {
+    var this_description = $($.find(".description." + $(this).attr("class").split(" ")[1]))
+    var all_other_descriptions = $($.find(".description")).not("." + this_description.attr("class").split(" ")[0])
+
+    all_other_descriptions.hide();
+    this_description.toggle();
+
+  });
+});
+
+$(function() {
   $(".attribute").click(function() {
-    $(this).parent().parent().parent().find(".transit-desc").hide();
-    $(this).parent().parent().parent().find(".description").hide();
-    $(this).parent().parent().parent().find(".description").not(".transit-desc").toggle();
+    var this_description = $($.find(".description." + $(this).attr("class").split(" ")[1]))
+    var all_other_descriptions = $($.find(".description")).not("." + this_description.attr("class").split(" ")[0])
+    debugger;
+
+    all_other_descriptions.hide();
+    this_description.toggle();
   });
 });
 
