@@ -16,7 +16,7 @@ DAYS_PASSED_PER_MONTH = {
   "11" => { normal: 304, leap: 305 },
   "12" => { normal: 334, leap: 335 }
 }
-DAYS_PASSED_PER_MONTH.freeze # ???
+DAYS_PASSED_PER_MONTH.freeze # hound???
 
 # days passed since J2000 epoch as of 00:00 01/01/16
 DAYS_SINCE_J2000 = 5842.5
