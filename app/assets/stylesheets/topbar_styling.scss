@@ -1,7 +1,7 @@
 // for presentation only
 body {marging-top: 2rem;}
 
-$menu-background: #333;
+$menu-background: rgba(0, 0, 0, 0.2);
 
 .title-bar {
   background: $menu-background;
@@ -46,20 +46,4 @@ $menu-background: #333;
       border-right: 1px solid #4e4e4e;
     }
   }
-}
-
-.dropdown.menu .submenu {
-  border: none;
-}
-
-.dropdown.menu .is-dropdown-submenu-parent.is-right-arrow>a::after {
-  border-color: #fff transparent transparent;
-}
-
-.is-drilldown-submenu-parent>a::after {
-  border-color: transparent transparent transparent #fff;
-}
-
-.js-drilldown-back::before {
-  border-color: transparent #fff transparent transparent;
 }

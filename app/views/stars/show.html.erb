@@ -21,10 +21,10 @@
   </h1>
   <ul class="row overlay-container accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
     <% @planets.each do |planet| %>
-      <li class="accordion-navigation text-center">
-        <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><h4><%= planet.planet_name %></h4></a>
+      <li class="accordion-navigation text-left">
+        <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title text-left" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><h4><%= planet.planet_name %></h4></a>
         <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
-          <h5 class="transit"><%= planet.transits? %></h5>
+          <h5 class="transit text-center"><%= planet.transits? %></h5>
           <div class="row all-attributes text-left">
             <div class="small-4 columns">
               <ul>
