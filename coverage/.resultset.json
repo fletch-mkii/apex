@@ -148,9 +148,7 @@
         null,
         null,
         null,
-        null,
         1,
-        null,
         null,
         null,
         null,
@@ -187,7 +185,9 @@
         null,
         null,
         null,
+        null,
         1,
+        null,
         null,
         null,
         null,
@@ -241,7 +241,6 @@
       "/Users/markfletcher/challenges/apex/app/controllers/homes_controller.rb": [
         1,
         1,
-        6,
         null,
         null
       ],
@@ -329,6 +328,6 @@
         null
       ]
     },
-    "timestamp": 1453759267
+    "timestamp": 1453764617
   }
 }
