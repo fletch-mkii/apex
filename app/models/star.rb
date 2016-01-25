@@ -1,6 +1,7 @@
 class Star < ActiveRecord::Base
 
   UNITS = [
+    "",
     "°",
     "°",
     " Parsecs",

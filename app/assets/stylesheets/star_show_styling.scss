@@ -1,15 +1,19 @@
-.accordion-navigation {
-  >a:after {
-    content: "↡";
-    padding-left: 5px;
-    float: right;
-    font-size: 20px;
-  }
-  &.active > a:after {
-    content: "↟";
-  }
+.accordion {
+  color: #fefefe;
 }
 
-.accordion {
-  background-color: #000000;
+.accordion-title {
+  font-size: 200%;
+}
+
+.accordion-content {
+  font-size: 120%;
+}
+
+li {
+    list-style-type: none;
+}
+
+h1 {
+  color: white !important;
 }
