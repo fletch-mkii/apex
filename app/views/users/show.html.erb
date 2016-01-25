@@ -1,16 +1,23 @@
-<div class="row">
-  <h1 class="title text-center"><%= @user.username + "'s"%></h1>
-  <h3 class="title text-center">Star Collection</h3>
+<div class="row text-center">
+  <h1 class="title"><%= @user.username + "'s"%></h1>
+  <h3 class="title">Star Collection</h3>
   <div class="row">
     <%@user.stars.each do |star|%>
-      <div class="small-2 columns end">
+      <div class="large-2 columns end">
         <a href="<%= '/stars/' + star.id.to_s %>">
           <div class="service">
             <div class="service-icon-box">
-              <img src="http://www.aeb.edu.pt/images/sol_256.png" alt="" class="service-icon">
+              <img src="/assets/star_thumb.png" alt="" class="service-icon">
             </div>
             <h4 class="service-heading"><%= star.star_name %></h4>
-            <p class="service-description">Click to visit star</p>
+            <%@star_history = @user.histories.where("star_id = ?", star.id).first%>
+            <div class="service-description">
+              <ul>
+                <li>Observed</li>
+                <li><%= @star_history.created_at.time %></li>
+                <li><%= @star_history.observation_location %></li>
+              </ul>
+            </div>
           </div>
         </a>
       </div>
