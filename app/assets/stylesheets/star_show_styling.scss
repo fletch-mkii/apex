@@ -1,5 +1,5 @@
 .accordion {
-  color: #fefefe;
+  color: white;
 }
 
 .accordion-title {
@@ -11,9 +11,10 @@
 }
 
 li {
-    list-style-type: none;
+  padding: 100;
+  list-style-type: none;
 }
 
-h1 {
+.planet-header {
   color: white !important;
 }

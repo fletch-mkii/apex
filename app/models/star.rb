@@ -11,8 +11,8 @@ class Star < ActiveRecord::Base
     "Solar Radii",
     "",
     "Grams per cubic centimeter",
-    "Log10 of cm/s^2",
-    "Solar Luminosities"
+    "Solar Luminosities",
+    "Log10 of cm/s^2"
   ]
 
   ATTRIBUTE_INFO = {
@@ -75,11 +75,7 @@ class Star < ActiveRecord::Base
     #takes in attributes
     #converts to more understandable units
     #outputs readable string for user
-  end
-
-  def parsecs_to_kilometers
     #make converter for each attribute???
     #still requires constant array of base units???
   end
-
 end

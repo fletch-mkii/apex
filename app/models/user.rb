@@ -33,11 +33,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   def set_location(ip)
-    #real code to be implemented in production
     response = HTTPClient.new.get("http://freegeoip.net/json/#{ip}")
-    #test code because localhost ip doesn't mesh with api
-    #use geocoder gem instead of freegeoip, might solve issue in development.
-    # response = HTTPClient.new.get("http://freegeoip.net/json/50.241.127.209")
     json_response = JSON.parse(response.body)
 
     self.latitude = json_response["latitude"]

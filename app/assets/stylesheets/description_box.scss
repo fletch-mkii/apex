@@ -1,13 +1,33 @@
+
 .attribute {
-    border: 1px solid;
+    border: 2px solid;
     padding:5px;
+    margin:5px;
+
+    &:hover {
+      background-color: rgba(150, 0, 255, 0.6);
+    }
 }
 
 .star-attribute {
-    border: 1px solid;
+    border: 2px solid;
     padding:5px;
+    margin:5px;
+
+    &:hover {
+      background-color: rgba(150, 0, 255, 0.6);
+    }
 }
 .description {
     display:none;
     text-shadow: 2px 2px #000000;
+}
+
+.selected {
+  background-color: rgba(100, 0, 255, 0.6);
+}
+
+.text-right {
+  float:right;
+  position:inherit;
 }

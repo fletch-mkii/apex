@@ -3,20 +3,20 @@
     <div class="overlay small-centered small-12 columns">
       <%counter = 0%>
       <div class="row all-attributes text-left">
-        <div class="small-4 columns">
+        <div class="large-5 columns animated fadeInLeft">
         <%@star.attributes.each do |attribute,value|%>
           <%next if attribute == "id"%>
               <li class="<%= 'star-attribute ' + attribute.titleize.delete(' ').downcase %>" >
               <%unless value.nil? || value == 0.0%>
-                <%=attribute.titleize + ": #{value} " + @star_units[counter]%>
+                <strong><%=attribute.titleize%></strong><div class="text-right"><%= "#{value} " + @star_units[counter]%></div>
               <%else%>
-                <%=attribute.titleize + ": Unknown"%>
+                <strong><%=attribute.titleize%></strong><div class="text-right">Unknown</div>
               <%end%>
               </li>
           <%counter += 1%>
         <%end%>
         </div>
-        <div class="small-4 columns">
+        <div class="large-6 columns">
           <% Star::ATTRIBUTE_INFO.each do |key,value| %>
             <div class="<%= key.to_s + ' description animated zoomIn' %>">
               <%= value %>
@@ -24,46 +24,51 @@
           <%end%>
         </div>
       </div>
-  </div>
-  <h1>
-    Planets That Orbit This Star
-  </h1>
-  <ul class="row overlay-container accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
-    <% @planets.each do |planet| %>
-      <li class="accordion-navigation text-left">
-        <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title text-left" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><h4><%= planet.planet_name %></h4></a>
-        <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
-          <h5 class="transit text-center"><strong><%= planet.transits? %></strong></h5>
-          <div class="row all-attributes text-left">
-            <div class="small-4 columns">
-              <ul>
-              <%counter = 0%>
-              <%planet.attributes.each do |attribute,value|%>
-                  <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
-                  <li class="<%= 'attribute planet' + attribute.titleize.delete(' ').downcase %>" >
-                  <%unless value.nil? || value == 0.0%>
-                    <%=attribute.titleize + ": #{value} " + @planet_units[counter]%>
-                  <%else%>
-                    <%=attribute.titleize + ": Unknown"%>
-                  <%end%>
-                  </li>
-                  <%counter += 1%>
-              <%end%>
-              </ul>
-            </div>
-            <div class="small-8 columns">
-              <% Planet::ATTRIBUTE_INFO.each do |key,value| %>
-                <div class="<%= key.to_s + ' description animated zoomIn' %>">
-                  <%= value %>
-                </div>
-              <%end%>
-            </div>
-            <div class="small-8 columns description transit-desc animated slideInDown">
-              Transit info yaaaaaaaayyyyy!!!!!!!
+    </div>
+    <div class="row planet-header">
+      <div class="text-center small-12 columns">
+        <h1>
+          Orbiting Planets
+        </h1>
+      </div>
+    </div>
+    <ul class="row overlay-container small-centered accordion" data-accordion role="tablist" data-multi-expand="true" data-allow-all-closed="true">
+      <% @planets.each do |planet| %>
+        <li class="accordion-navigation text-left">
+          <a href=<%="#panel#{planet.id}"%> role="tab" class="accordion-title text-left" id=<%="panel#{planet.id}-heading"%> aria-controls=<%="panel#{planet.id}"%>><h4><strong><%= planet.planet_name %></strong></h4></a>
+          <div id=<%="panel#{planet.id}"%> class="accordion-content" role="tabpanel" data-tab-content aria-labelledby=<%="panel#{planet.id}"%>>
+            <h5 class="transit text-center animated fadeInDown"><strong><%= planet.transits? %></strong></h5>
+            <div class="row all-attributes text-left">
+              <div class="large-5 columns animated fadeInLeft">
+                <ul>
+                <%counter = 0%>
+                <%planet.attributes.each do |attribute,value|%>
+                    <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
+                    <li class="<%= 'attribute planet' + attribute.titleize.delete(' ').downcase %>" >
+                    <%unless value.nil? || value == 0.0%>
+                      <strong><%=attribute.titleize%></strong><div class="text-right"><%= "#{value} " + @planet_units[counter]%></div>
+                    <%else%>
+                      <strong><%=attribute.titleize%></strong><div class="text-right">Unknown</div>
+                    <%end%>
+                    </li>
+                    <%counter += 1%>
+                <%end%>
+                </ul>
+              </div>
+              <div class="large-7 columns">
+                <% Planet::ATTRIBUTE_INFO.each do |key,value| %>
+                  <div class="<%= key.to_s + ' description animated zoomIn' %>">
+                    <%= value %>
+                  </div>
+                <%end%>
+              </div>
+              <div class="large-7 columns description transit-desc animated slideInDown">
+                Transit info yaaaaaaaayyyyy!!!!!!!
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

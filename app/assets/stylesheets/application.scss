@@ -30,19 +30,19 @@ html {
 }
 
 .success.button {
-  background-color: rgba(0, 120, 200, 0.3);
+  background-color: rgba(0, 100, 255, 0.3);
 
   &:hover {
     color: black;
-    background-color: rgba(0, 255, 200, 0.8);
+    background-color: rgba(150, 0, 255, 0.8);
   }
 }
 
 .alert.button {
-  background-color: rgba(200, 0, 200, 0.3);
+  background-color: rgba(255, 0, 100, 0.3);
 
   &:hover {
     color: black;
-    background-color: rgba(250, 0, 200, 0.8);
+    background-color: rgba(255, 0, 150, 0.8);
   }
 }
