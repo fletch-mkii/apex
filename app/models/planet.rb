@@ -6,7 +6,7 @@ class Planet < ActiveRecord::Base
     "",
     "Juper Masses",
     "Jupiter Radii",
-    "Grams per cubic centimeter",
+    "g/cm³",
     "",
   ]
 
