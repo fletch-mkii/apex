@@ -17,12 +17,12 @@ describe Planet do
   describe "transits? method" do
     it "should return affirmative message" do
       tplanet = Planet.create(planet_name: "transitworld", star_id: 1, transits: true)
-      expect(tplanet.transits?).to eq("This planet transits its host star.")
+      expect(tplanet.transits?).to eq("This planet transits its parent star.")
     end
 
     it "should return affirmative message" do
       ntplanet = Planet.create(planet_name: "transitworld", star_id: 2, transits: false)
-      expect(ntplanet.transits?).to eq("This planet does not transit its host star.")
+      expect(ntplanet.transits?).to eq("This planet does not transit its parent star.")
     end
   end
 end

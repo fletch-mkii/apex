@@ -6,13 +6,13 @@ class Star < ActiveRecord::Base
     "°",
     "Parsecs",
     "Kelvin",
-    "Gigayears",
+    "Billion years",
     "Solar Masses",
     "Solar Radii",
     "",
-    "Grams per cubic centimeter",
+    "g/cm³",
     "Solar Luminosities",
-    "Log10 of cm/s^2"
+    "m/s²"
   ]
 
   ATTRIBUTE_INFO = {
@@ -54,7 +54,12 @@ class Star < ActiveRecord::Base
                 but only two values are needed in order to make a good estimate
                 for a main sequence star: mass and luminosity.  As a star ages,
                 it will become more luminous.",
-    stellarmass: "mass info",
+    stellarmass: "The amount of matter contained within the star.  This can be
+                  easily calculated given the brightness of a star and the distance
+                  that star is away from Earth.  This allows for absolute brightness
+                  to be calculated.  The brightness of a star correlates directly
+                  with mass, so once absolute brightness is known the mass can be
+                  trivially calculated.",
     strellarradius: "radius info",
     spectraltype: "spectype info",
     density: "density info",

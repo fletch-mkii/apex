@@ -29,8 +29,8 @@ describe User do
   end
 
   describe "set_location method" do
-    it "should return city, region, country" do
-      expect(user.set_location("50.241.127.209")).to eq("Manchester, New Hampshire, United States")
+    it "should return city, region" do
+      expect(user.set_location("50.241.127.209")).to eq("Manchester, New Hampshire")
     end
   end
 

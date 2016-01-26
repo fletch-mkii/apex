@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
     self.latitude = json_response["latitude"]
     self.longitude = json_response["longitude"]
 
-    return "#{json_response["city"]}, #{json_response["region_name"]}, #{json_response["country_name"]}"
+    return "#{json_response["city"]}, #{json_response["region_name"]}"
   end
 
   def find_star
