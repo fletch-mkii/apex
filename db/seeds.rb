@@ -300,7 +300,7 @@ csv_array_of_hashes.each do |planet|
   end
 
   #converts log10 of cm/s^2 to m/s^2
-  st_logg = 10.0 ** planet[:st_logg].to_f / 10.0 unless planet[:st_logg].nil?
+  st_logg = (10.0 ** planet[:st_logg].to_f / 10.0).round(2) unless planet[:st_logg].nil?
 
   star = Star.create(
     star_name: planet[:pl_hostname],
