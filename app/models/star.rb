@@ -63,8 +63,8 @@ class Star < ActiveRecord::Base
     stellarradius: "radius info",
     spectraltype: "spectype info",
     density: "density info",
-    surfacegravity: "gravity info",
-    luminosity: "luminosity info"
+    luminosity: "luminosity info",
+    surfacegravity: "gravity info"
   }
 
   has_many :planets
