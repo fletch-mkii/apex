@@ -60,7 +60,7 @@ class Star < ActiveRecord::Base
                   to be calculated.  The brightness of a star correlates directly
                   with mass, so once absolute brightness is known the mass can be
                   trivially calculated.",
-    strellarradius: "radius info",
+    stellarradius: "radius info",
     spectraltype: "spectype info",
     density: "density info",
     surfacegravity: "gravity info",

@@ -1,5 +1,6 @@
 var showDescriptions = function(descType) {
   $(descType).click(function() {
+    debugger;
     var this_description = $($.find(".description." + $(this).attr("class").split(" ")[1]));
     var all_other_descriptions = $($.find(".description")).not("." + this_description.attr("class").split(" ")[0]);
     var this_attribute = $($.find("." + $(this).attr("class").split(" ")[1])).not(".description");
