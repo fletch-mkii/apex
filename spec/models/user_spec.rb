@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe User do
 
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:star) { FactoryGirl.create(:star) }
+
   it { should have_many :stars }
 
   describe "validation checks for email" do
@@ -23,5 +26,19 @@ describe User do
     subject { FactoryGirl.build(:user) }
     it { should validate_presence_of(:password) }
     it { should validate_length_of(:password) }
+  end
+
+  describe "set_location method" do
+    it "should return city, region, country" do
+      expect(user.set_location("50.241.127.209")).to eq("Manchester, New Hampshire, United States")
+    end
+  end
+
+  describe "find_star method" do
+    it "should return a star object" do
+      user.set_location("50.241.127.209")
+
+      expect(user.find_star).to be_a(Star)
+    end
   end
 end

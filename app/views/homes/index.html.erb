@@ -11,7 +11,7 @@
         </div>
       <% end %>
       <div class="medium-4 columns">
-        <%= button_to "Randomize!", star_path(rand(Star.count)), method: "get", class: "alert button radius" %>
+        <%= button_to "Randomize!", star_path(@star), method: "get", class: "alert button radius" %>
       </div>
     </div>
   </div>

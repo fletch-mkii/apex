@@ -1,5 +1,6 @@
 FactoryGirl.find_definitions
 include ApplicationHelper
+require 'date'
 
 FactoryGirl.define do
   factory :user do
@@ -8,6 +9,7 @@ FactoryGirl.define do
     sequence(:password) { |n| "password#{n}" }
     sequence(:latitude) { |n| 10.0 + "0.#{n}".to_f }
     sequence(:longitude) { |n| 20.0 + "0.#{n}".to_f }
+
   end
 
   factory :star do

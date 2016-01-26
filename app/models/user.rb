@@ -54,7 +54,6 @@ class User < ActiveRecord::Base
       right_ascension: (current_right_ascension - range)..(current_right_ascension + range)
     )
     if stars.empty?
-      return star_search(range + 5.0) if range >= 5.0
       return star_search(range + 1.0)
     elsif stars.count == 1
       return stars.first

@@ -23,6 +23,7 @@ class Planet < ActiveRecord::Base
   belongs_to :star
 
   validates :planet_name, presence: true, uniqueness: true
+  validates :star_id, presence: true
 
   def transits?
     return "This planet transits its host star." if transits

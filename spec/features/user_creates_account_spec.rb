@@ -2,7 +2,9 @@ require 'rails_helper'
 
 feature "user can register for an account" do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:star) { FactoryGirl.create(:star) }
+
 
   scenario "user succesfully creates a new account" do
     new_user = FactoryGirl.build(:user)
