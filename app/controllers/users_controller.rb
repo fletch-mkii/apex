@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    geocoder = Geocoder.search(@user.current_sign_in_ip)
-    @user.current_location = geocoder.first.address
+    geocoder = Geocoder.search(@user.current_sign_in_ip).first
+    @user.current_location = geocoder.address
+    @user.latitude = geocoder.latitude
+    @user.longitude = geocoder.longitude
     @star = @user.find_star
 
     if @user.save
