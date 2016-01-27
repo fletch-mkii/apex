@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   def set_location(ip)
     response = HTTPClient.new.get("http://freegeoip.net/json/#{ip}")
+
     json_response = JSON.parse(response.body)
 
     self.latitude = json_response["latitude"]
@@ -77,10 +78,6 @@ class User < ActiveRecord::Base
     time.hour.to_f + (time.min.to_f / 60.0) + (time.sec.to_f / 3600.0)
   end
 
-  def current_local_hour_angle
-    15.0 * hours
-  end
-
   def current_j2000_date
     time = Time.now.utc
     year_type = :leap
@@ -92,19 +89,20 @@ class User < ActiveRecord::Base
     jdays += time.day + hours / 24.0
   end
 
-  def current_local_sidereal
-    sidereal = current_local_hour_angle + 100.46 + longitude
-    sidereal += 0.9885647 * current_j2000_date
-    sidereal % 360
-    # sidereal = current_local_hour_angle + 100.46 + self.longitude + 0.0034557123449953306 * current_j2000_date
-    # sidereal = 18.697374558 + self.longitude + 24.06570982441908 * current_j2000_date
-    # GMST = 18.697374558 + 24.06570982441908 D
+  def current_global_sidereal
+    ((18.697374558 + 24.06570982441908 * current_j2000_date) % 24) * 15
   end
 
   def current_right_ascension
-    ra = (current_local_hour_angle - current_local_sidereal) * -1
-    return ra if ra > 0
-    ra + 360
+    raw_sidereal = current_global_sidereal + (longitude)
+
+    if raw_sidereal >= 360.0
+      return raw_sidereal - 360
+    elsif raw_sidereal < 0
+      return raw_sidereal + 360
+    else
+      return raw_sidereal
+    end
   end
 
   def current_declination
