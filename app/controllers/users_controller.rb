@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.current_location = Geocoder.search(@user.current_sign_in_ip)
+    binding.pry
+    geocoder = Geocoder.search(@user.current_sign_in_ip)
+    @user.current_location = geocoder.first.address
     @star = @user.find_star
 
     if @user.save
