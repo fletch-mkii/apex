@@ -28,15 +28,8 @@ describe User do
     it { should validate_length_of(:password) }
   end
 
-  describe "set_location method" do
-    it "should return city, region" do
-      expect(user.set_location("50.241.127.209")).to eq("Manchester, New Hampshire")
-    end
-  end
-
   describe "find_star method" do
     it "should return a star object" do
-      user.set_location("50.241.127.209")
 
       expect(user.find_star).to be_a(Star)
     end
