@@ -6,13 +6,17 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    ip = @user.current_sign_in_ip
-    @location = @user.set_location(ip)
+    binding.pry
+    @user.current_location = Geocoder.search(@user.current_sign_in_ip)
     @star = @user.find_star
 
     if @user.save
       unless @user.stars.include?(@star)
-        @user.histories.create(star_id: @star.id, observation_location: @location)
+        if @user.current_location.nil?
+          @user.histories.create(star_id: @star.id, observation_location: "")
+        else
+          @user.histories.create(star_id: @star.id, observation_location: @user.current_location)
+        end
       end
       flash.notice = "Star successfully found!"
       redirect_to star_path(@star)

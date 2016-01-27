@@ -23,6 +23,9 @@ DAYS_SINCE_J2000 = 5842.5
 
 class User < ActiveRecord::Base
 
+  geocoded_by :current_sign_in_ip
+  after_validation :geocode
+
   has_many :histories
   has_many :stars, through: :histories
 
@@ -31,17 +34,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, uniqueness: true
-
-  def set_location(ip)
-    response = HTTPClient.new.get("http://freegeoip.net/json/#{ip}")
-
-    json_response = JSON.parse(response.body)
-
-    self.latitude = json_response["latitude"]
-    self.longitude = json_response["longitude"]
-
-    return "#{json_response["city"]}, #{json_response["region_name"]}"
-  end
 
   def find_star
     star_search(1.0)
