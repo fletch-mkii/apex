@@ -6,13 +6,21 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    geocoder = Geocoder.search(@user.current_sign_in_ip).first
-    @user.current_location = geocoder.address
-    @user.latitude = geocoder.latitude
-    @user.longitude = geocoder.longitude
+    geocoder_data = Geocoder.search(@user.current_sign_in_ip).first.data
+    @user.latitude = geocoder_data["latitude"]
+    @user.longitude = geocoder_data["longitude"]
+
+    location = geocoder_data["city"]
+    unless geocoder_data["city"].empty?
+      location += ", " + geocoder_data["region_name"]
+    else
+      location = geocoder_data["region_name"]
+    end
+    @user.current_location = location
     @star = @user.find_star
 
     if @user.save
+      binding.pry
       unless @user.stars.include?(@star)
         if @user.current_location.nil?
           @user.histories.create(star_id: @star.id, observation_location: "")

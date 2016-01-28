@@ -57,10 +57,13 @@ class User < ActiveRecord::Base
 
   def closest_star(stars)
     min_distance = 100_000
+
     stars.each do |star|
+      next if star.distance.nil?
       min_distance = star.distance if star.distance < min_distance
     end
     stars.each do |star|
+      next if star.distance.nil?
       return star if star.distance == min_distance
     end
   end
