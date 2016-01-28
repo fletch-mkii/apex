@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     @star = @user.find_star
 
     if @user.save
-      binding.pry
       unless @user.stars.include?(@star)
         if @user.current_location.nil?
           @user.histories.create(star_id: @star.id, observation_location: "")
