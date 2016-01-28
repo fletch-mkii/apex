@@ -16,8 +16,10 @@
     <img src="/assets/doubleplanet.jpg" class="float-center background-image"/>
     <%= render "layouts/top_bar" %>
     <div class="row">
-      <%= render "layouts/flash" %>
-      <%= yield %>
+      <div class="small-12 columns"
+        <%= render "layouts/flash" %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
