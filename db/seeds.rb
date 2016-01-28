@@ -335,20 +335,15 @@ end
 
 myself = User.create(username: "Mark Fletcher", email: "mark.fletcher@apex.io", password: "password")
 
-used_stars = []
-this_star = 0
 used_cities = []
 this_city = ""
-29.times do |i|
-  while used_stars.include?(this_star) || this_star == 0
-    this_star = Star.all.sample.id
-  end
-
-  while used_cities.include?(this_city) || this_city.empty?
+Star.all.each do |star|
+	while used_cities.include?(this_city) || this_city.empty?
     this_city = CITIES.sample
   end
 
-  History.create(user_id: myself.id, star_id: this_star, observation_location: this_city)
-  used_stars << this_star
-  used_cities << this_city
+	if (/\d/ =~ star.star_name).nil?
+		History.create(user_id: myself.id, star_id: star.id, observation_location: this_city)
+	  used_cities << this_city
+	end
 end
