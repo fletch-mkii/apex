@@ -16,14 +16,14 @@ class Star < ActiveRecord::Base
   ]
 
   ATTRIBUTE_INFO = {
-    starname: "Many stars have multiple names, but the name represented
+    star_name: "Many stars have multiple names, but the name represented
               here is the name referenced most often in publications.  New stars
               are generally named after either their discoverer, or the
               telescope with which they were found.  Other stars have been
               named for centuries, and follow the trends of the society that
               named them.  This resulted in a fair portion of stars possessing
               names from the mythologies of various cultures.",
-    rightascension: "Right ascension is the name for one of the coordinates in the
+    right_ascension: "Right ascension is the name for one of the coordinates in the
                     celestial coordinate system.  It is akin to the longitude
                     of earth's coordinates, in that it runs perpendicular to the
                     celestial equator.  Declination can be measured in units of
@@ -50,21 +50,21 @@ class Star < ActiveRecord::Base
                   correlates to exact wavelengths of light, so if one value is
                   known then the other can be found trivially via Wien's
                   Displacement Law.",
-    stellarage: "The age of a star seems like it might be challenging to calculate,
+    stellar_age: "The age of a star seems like it might be challenging to calculate,
                 but only two values are needed in order to make a good estimate
                 for a main sequence star: mass and luminosity.  As a star ages,
                 it will become more luminous.",
-    stellarmass: "The amount of matter contained within the star.  This can be
+    stellar_mass: "The amount of matter contained within the star.  This can be
                   easily calculated given the brightness of a star and the distance
                   that star is away from Earth.  This allows for absolute brightness
                   to be calculated.  The brightness of a star correlates directly
                   with mass, so once absolute brightness is known the mass can be
                   trivially calculated.",
-    stellarradius: "radius info",
-    spectraltype: "spectype info",
+    stellar_radius: "radius info",
+    spectral_type: "spectype info",
     density: "density info",
     luminosity: "luminosity info",
-    surfacegravity: "gravity info"
+    surface_gravity: "gravity info"
   }
 
   has_many :planets

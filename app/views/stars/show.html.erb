@@ -1,3 +1,4 @@
+</br>
 <div class="overlay-container">
   <div class="row">
     <div class="overlay small-centered small-12 columns">
@@ -14,7 +15,7 @@
         <%@star.attributes.each do |attribute,value|%>
           <%next if attribute == "id" || attribute == "star_name"%>
               <li class="<%= 'star-attribute ' + attribute.titleize.delete(' ').downcase %>" >
-              <%if !value.nil? || value != 0.0%>
+              <%if !value.nil? && value != 0.0%>
                 <strong><%=attribute.titleize%></strong><div class="text-right"><%= "#{value} " + @star_units[counter]%></div>
               <%elsif attribute == "distance"%>
                 <strong>Distance From Earth</strong><div class="text-right"><%= "#{value} " + @star_units[counter]%></div>
@@ -25,14 +26,24 @@
           <%counter += 1%>
         <%end%>
         </div>
-        <div class="large-6 columns">
+        <div class="large-offset-2 large-5 columns end">
           <% Star::ATTRIBUTE_INFO.each do |key,value| %>
-            <div class="<%= key.to_s + ' description animated zoomIn' %>">
-              <%= value %>
+            <div class="row text-center">
+              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title selected small-12 columns animated zoomIn' %>">
+                <h4><%=key.to_s.titleize%></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description selected small-12 columns animated zoomIn' %>">
+                <%= value %>
+              </div>
             </div>
           <%end%>
         </div>
       </div>
+      </br>
+      </br>
+      </br>
       <div class="row planet-header">
         <div class="text-center small-12 columns">
           <h2>
@@ -65,8 +76,15 @@
                 </div>
                 <div class="large-7 columns">
                   <% Planet::ATTRIBUTE_INFO.each do |key,value| %>
-                    <div class="<%= key.to_s + ' description animated zoomIn' %>">
-                      <%= value %>
+                    <div class="row text-center">
+                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title selected small-12 columns animated zoomIn' %>">
+                        <h4><%=key.to_s.titleize[7..-1]%></h4>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description selected small-12 columns animated zoomIn' %>">
+                        <%= value %>
+                      </div>
                     </div>
                   <%end%>
                 </div>

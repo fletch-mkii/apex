@@ -1,35 +1,19 @@
+</br>
 <div class="overlay-container">
   <div class="row">
     <div class="text-center overlay small-centered">
       <% if user_signed_in? %>
-        <div class="medium-4 columns">
+        <div class="large-4 columns">
           <%= button_to "Find Your Apex", edit_user_registration_path, method: "patch", class: "success button round" %>
         </div>
       <% else %>
-        <div class="medium-4 columns">
+        <div class="large-4 columns">
           <%= button_to "Log in to find your Apex", new_user_session_path, class: "success button round" %>
         </div>
       <% end %>
-      <div class="medium-4 columns">
+      <div class="large-4 columns">
         <%= button_to "Randomize!", star_path(@star), method: "get", class: "alert button radius" %>
       </div>
     </div>
   </div>
 </div>
-
-<%if false%>
-
-<div class="row">
-  <div class="large-6 large-push-2 columns">
-    <div class="circle-bg personal-star">
-      <p>Find Your Apex!</p>
-    </div>
-  </div>
-  <div class="large-6 large-pull-2 columns">
-    <div class="circle-bg random-star">
-      <p>Find A Random Star!</p>
-    </div>
-  </div>
-</div>
-
-<%end%>

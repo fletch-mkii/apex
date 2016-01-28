@@ -1,5 +1,7 @@
 
 .attribute {
+    font-size: 1rem;
+    border-radius: 15px;
     border: 2px solid;
     padding:5px;
     margin:5px;
@@ -10,6 +12,8 @@
 }
 
 .star-attribute {
+    font-size: 1rem;
+    border-radius: 15px;
     border: 2px solid;
     padding:5px;
     margin:5px;
@@ -19,12 +23,28 @@
     }
 }
 .description {
+    font-size: 1rem;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border: 2px solid;
     display:none;
     text-shadow: 2px 2px #000000;
 }
 
+.description-title {
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.transit-desc {
+  font-size: 1rem;
+  border: none;
+}
+
 .selected {
-  background-color: rgba(100, 0, 255, 0.6);
+  background-color: rgba(100, 0, 255, 0.5);
 }
 
 .text-right {

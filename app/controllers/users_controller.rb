@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require 'nokogiri'
+  require 'open-uri'
 
   def show
     @user = User.find(params[:id])
