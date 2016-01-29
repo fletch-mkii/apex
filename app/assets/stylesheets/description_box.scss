@@ -28,6 +28,7 @@
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     border: 2px solid;
+    background-color: rgba(128, 128, 128, 0.5);
     display:none;
     text-shadow: 2px 2px #000000;
 }
@@ -40,7 +41,12 @@
 
 .transit-desc {
   font-size: 1rem;
-  border: none;
+  border-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .selected {

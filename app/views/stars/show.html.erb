@@ -14,7 +14,8 @@
         <div class="large-5 columns animated fadeInLeft">
         <%@star.attributes.each do |attribute,value|%>
           <%next if attribute == "id" || attribute == "star_name"%>
-              <li class="<%= 'star-attribute ' + attribute.titleize.delete(' ').downcase %>" >
+            <div class="row">
+              <li class="<%= 'star-attribute ' + attribute.titleize.delete(' ').downcase + ' medium-12 columns end' %>" >
               <%if !value.nil? && value != 0.0%>
                 <strong><%=attribute.titleize%></strong><div class="text-right"><%= "#{value} " + @star_units[counter]%></div>
               <%elsif attribute == "distance"%>
@@ -23,18 +24,19 @@
                 <strong><%=attribute.titleize%></strong><div class="text-right">Unknown</div>
               <%end%>
               </li>
+            </div>
           <%counter += 1%>
         <%end%>
         </div>
-        <div class="large-offset-2 large-5 columns end">
+        <div class="large-5 columns">
           <% Star::ATTRIBUTE_INFO.each do |key,value| %>
             <div class="row text-center">
-              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title selected small-12 columns animated zoomIn' %>">
+              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title small-12 columns animated zoomIn' %>">
                 <h4><%=key.to_s.titleize%></h4>
               </div>
             </div>
             <div class="row">
-              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description selected small-12 columns animated zoomIn' %>">
+              <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description small-12 columns animated zoomIn' %>">
                 <%= value %>
               </div>
             </div>
@@ -62,8 +64,9 @@
                   <ul>
                   <%counter = 0%>
                   <%planet.attributes.each do |attribute,value|%>
+                    <div class="row">
                       <%next if attribute == "id" || attribute == "star_id" || attribute == "planet_name" || attribute == "transits"%>
-                      <li class="<%= 'attribute planet' + attribute.titleize.delete(' ').downcase %>" >
+                      <li class="<%= 'attribute planet' + attribute.titleize.delete(' ').downcase + ' planet medium-12 columns end' %>" >
                       <%unless value.nil? || value == 0.0%>
                         <strong><%=attribute.titleize%></strong><div class="text-right"><%= "#{value} " + @planet_units[counter]%></div>
                       <%else%>
@@ -71,25 +74,26 @@
                       <%end%>
                       </li>
                       <%counter += 1%>
+                    </div>
                   <%end%>
                   </ul>
                 </div>
-                <div class="large-7 columns">
+                <div class="large-offset-2 large-5 columns">
                   <% Planet::ATTRIBUTE_INFO.each do |key,value| %>
                     <div class="row text-center">
-                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title selected small-12 columns animated zoomIn' %>">
+                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description description-title small-12 columns animated zoomIn' %>">
                         <h4><%=key.to_s.titleize[7..-1]%></h4>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description selected small-12 columns animated zoomIn' %>">
+                      <div class="<%= key.to_s.titleize.downcase.gsub(/ /, '') + ' description small-12 columns animated zoomIn' %>">
                         <%= value %>
                       </div>
                     </div>
                   <%end%>
                 </div>
-                <div class="large-7 columns description transit-desc animated slideInDown">
-                  Transit info yaaaaaaaayyyyy!!!!!!!
+                <div class="large-5 columns description transit-desc animated slideInDown">
+                  A planet is said to transit it's parent star when its orbital plane intersects the plane of the observer.  Simply put, this means that the passes in front of the star from the observer's point of view.
                 </div>
               </div>
             </div>

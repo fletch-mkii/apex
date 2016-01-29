@@ -60,11 +60,41 @@ class Star < ActiveRecord::Base
                   to be calculated.  The brightness of a star correlates directly
                   with mass, so once absolute brightness is known the mass can be
                   trivially calculated.",
-    stellar_radius: "radius info",
-    spectral_type: "spectype info",
-    density: "density info",
-    luminosity: "luminosity info",
-    surface_gravity: "gravity info"
+    stellar_radius: "Radius is the distance from the center of a star to the surface.
+                    The radius is a star can be calculated realiably if the
+                    luminosity of that star is known.  Luminosity can typically
+                    be calculated for a star with observable brightness, which allows radius to
+                    also be found easily.  Luminosity is dependent upon surface area,
+                    and radius is tied directly to the radius of a star.  This means
+                    that a known luminosity allows radius to be deciphered trivially.",
+    spectral_type: "Most stars are currently classified under the Morgan–Keenan
+                    (MK) system using the letters O, B, A, F, G, K, and M, a sequence
+                    from the hottest (O type) to the coolest (M type). Each letter
+                    class is then subdivided using a numeric digit with 0 being
+                    hottest and 9 being coolest. There are additonal classes, such as
+                    D for white dwarfs and class C for carbon stars. A luminosity
+                    class is added to the spectral class using Roman numerals.
+                    This is based on the width of certain absorption lines in the star's spectrum,
+                    which vary with the density of the atmosphere and so distinguish giant stars from
+                    dwarfs. The full spectral class for the Sun is G2V.",
+    density: "Density is the ratio of a star's mass to it's volume.  Volume can be
+              calculated if radius is known because stars are spherical.  Therefore
+              density is known for any star where a radius and mass are known.",
+    luminosity: "A star's luminosity is the total amount of energy emitted by it
+                per unit time, also known as energy flux. It is tied directly to
+                brightness, meaning a star with higher luminosity is also brighter.
+                A star's luminosity can be determined as long as size and temperature
+                are known. In SI units luminosity is measured in joules per second
+                or watts. Values for luminosity are often given in the terms of
+                the luminosity of the Sun, which has a total power output of about
+                384 YottaWatts.  That's fifteen orders of magnitude larger than a
+                GigaWatt!",
+    surface_gravity: "The surface gravity of a star is the gravitational acceleration
+                      experienced at its surface, and is dependent only upon mass
+                      and radius.  Mass determines gravity, and the distance away
+                      from the center of mass determines the acceleration due to gravity
+                      from that object.  The gravitational acceleration on the surface
+                      of Earth is roughly 9.8 m/s."
   }
 
   has_many :planets
