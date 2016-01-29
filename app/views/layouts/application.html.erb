@@ -13,7 +13,9 @@
   </head>
 
   <body>
-    <img src="/assets/doubleplanet.jpg" class="float-center background-image"/>
+    <%if @custom_bg.nil?%>
+      <img src="/assets/blue-eclipse.jpg" class="float-center background-image"/>
+    <%end%>
     <%= render "layouts/top_bar" %>
     <div class="row">
       <div class="small-12 columns">

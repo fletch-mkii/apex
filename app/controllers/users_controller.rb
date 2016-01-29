@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   require 'open-uri'
 
   def show
+    @custom_bg = true
     @user = User.find(params[:id])
   end
 
