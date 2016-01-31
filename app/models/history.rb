@@ -4,5 +4,4 @@ class History < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :star_id, presence: true
-  validates :observation_location, presence: true
 end

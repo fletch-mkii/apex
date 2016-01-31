@@ -24,17 +24,20 @@ class UsersController < ApplicationController
 
     if @user.save
       unless @user.stars.include?(@star)
-        if @user.current_location.nil?
-          @user.histories.create(star_id: @star.id, observation_location: "")
-        else
-          @user.histories.create(star_id: @star.id, observation_location: @user.current_location)
-        end
+        @history = @user.histories.create(star_id: @star.id,
+                               observation_location: @user.current_location
+                              )
       end
-      flash.notice = "Star successfully found!"
-      redirect_to star_path(@star)
+      if @history.valid?
+        flash.notice = "Star successfully found!"
+        redirect_to star_path(@star)
+      else
+        flash.notice = "Unable to pinpoint your location."
+        render '/'
+      end
     else
       flash.notice = @user.errors.full_messages.join(". ")
-      render root_path
+      render '/'
     end
   end
 end

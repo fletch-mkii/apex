@@ -14,9 +14,4 @@ describe History do
     subject { FactoryGirl.build(:history) }
     it { should validate_presence_of(:user_id) }
   end
-
-  describe "validation checks for observation_location" do
-    subject { FactoryGirl.build(:history) }
-    it { should validate_presence_of(:observation_location) }
-  end
 end
