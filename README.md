@@ -26,10 +26,11 @@ installed.
 Setting up the database is the only other important prerequisite to running the
 application, and can be done by issuing the following set of rake commands:
 
-`rake db:create`
-`rake db:migrate`
+`rake db:create`  
+`rake db:migrate`  
 `rake db:seed`
-OR, in one command:
+
+OR, in one command:  
 `rake db:reset`
 
 The seed (or reset) command will take some time and require an internet connection,
