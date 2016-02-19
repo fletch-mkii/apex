@@ -37,9 +37,10 @@ The seed (or reset) command will take some time and require an internet connecti
 as the seeder file is where a request to NASA's API is made in order to populate
 the database with the relevant information.
 
-#Usage
+## Usage
 A pre-loaded user exists for the sake of exploring the functionality of the website.
-If you would like to use this account, log in with the credentials below.
+If you would like to use this account, log in with the credentials below at
+https://stellar-apex.herokuapp.com
 ```
 Email: mark.fletcher@apex.test
 Password: password
