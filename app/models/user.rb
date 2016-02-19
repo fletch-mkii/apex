@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
       declination: (current_declination - range)..(current_declination + range),
       right_ascension: (current_right_ascension - range)..(current_right_ascension + range)
     )
+
     if stars.empty?
       return star_search(range + 1.0)
     elsif stars.count == 1
@@ -60,12 +61,12 @@ class User < ActiveRecord::Base
 
     stars.each do |star|
       next if star.distance.nil?
-      min_distance = star.distance if star.distance < min_distance
+      if star.distance < min_distance
+        min_distance = star.distance
+        @output_star = star
+      end
     end
-    stars.each do |star|
-      next if star.distance.nil?
-      return star if star.distance == min_distance
-    end
+    @output_star
   end
 
   def hours
