@@ -333,7 +333,7 @@ csv_array_of_hashes.each do |planet|
   )
 end
 
-myself = User.create(username: "Mark Fletcher", email: "mark.fletcher@apex.io", password: "password")
+myself = User.create(username: "Mark Fletcher", email: "mark.fletcher@apex.test", password: "password")
 
 used_cities = []
 this_city = ""

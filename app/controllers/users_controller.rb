@@ -27,7 +27,10 @@ class UsersController < ApplicationController
         @history = @user.histories.create(star_id: @star.id,
                                observation_location: @user.current_location
                               )
+      else
+        @history = @user.histories.where("star_id = ?", @star.id).first
       end
+      
       if @history.valid?
         flash.notice = "Star successfully found!"
         redirect_to star_path(@star)
