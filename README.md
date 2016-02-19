@@ -37,6 +37,14 @@ The seed (or reset) command will take some time and require an internet connecti
 as the seeder file is where a request to NASA's API is made in order to populate
 the database with the relevant information.
 
+#Usage
+A pre-loaded user exists for the sake of exploring the functionality of the website.
+If you would like to use this account, log in with the credentials below.
+```
+Email: mark.fletcher@apex.test
+Password: password
+```
+
 ## Caveats
 
 The Geocoder gem does not acquire an IP address outside of production that will
