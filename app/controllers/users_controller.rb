@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       else
         @history = @user.histories.where("star_id = ?", @star.id).first
       end
-      
+
       if @history.valid?
         flash.notice = "Star successfully found!"
         redirect_to star_path(@star)
